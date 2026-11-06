@@ -100,7 +100,11 @@ summary { cursor: pointer; font-weight: 600; } details p { margin: .6em 0 .2em; 
 .trow b { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; } .trow em { float: right; font-style: normal; color: var(--muted); }
 .trow.owe { border-color: var(--owe); background: var(--owe-bg); } .trow.owe b { color: var(--owe); }
 .trow.owed { border-color: var(--owed); background: var(--owed-bg); } .trow.owed b { color: var(--owed); }
-@media (prefers-reduced-motion: reduce) { .scene { animation: none !important; opacity: 0; } .s3 { opacity: 1; } .scan, .typed span, .saved { animation: none !important; } }
+.demo.still .scene { animation: none !important; opacity: 0; } .demo.still .s3 { opacity: 1; } .demo.still .scan, .demo.still .typed span, .demo.still .saved { animation: none !important; }
+.demo.paused .scene, .demo.paused .scan, .demo.paused .typed span, .demo.paused .saved { animation-play-state: paused !important; }
+.democtl { display: inline-flex; align-items: center; gap: 8px; margin: 10px auto 0; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--glass); color: var(--ink); font: inherit; font-size: .9rem; font-weight: 600; cursor: pointer; }
+.democtl:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.demo { text-align: center; }
 /* gentle motion */
 body { background-attachment: scroll; }
 .hero::before { content: ""; position: absolute; left: 50%; top: -60px; width: min(520px, 80vw); height: 320px; transform: translateX(-50%); background: radial-gradient(closest-side, var(--glow), transparent); z-index: -1; animation: drift 14s ease-in-out infinite alternate; pointer-events: none; }

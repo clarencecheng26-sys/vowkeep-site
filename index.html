@@ -35,11 +35,14 @@
 <section aria-labelledby="h-how">
 <p class="eyebrow">How it works</p>
 <h2 id="h-how">Scan or type. VowKeep files it. Today tells you what to do.</h2>
-<div class="demo" role="img" aria-label="Animated example: a business card is scanned, one line is typed, and Today shows what you need to do and what you are waiting for.">
-<div class="dscreen">
+<div class="demo">
+<div class="dscreen" role="img" aria-label="Animated example: a business card is scanned, one line is typed, and Today shows what you need to do and what you are waiting for.">
 <div class="scene s1"><div class="bcard"><span class="bn">Priya Nair</span><span class="bt">Procurement Manager</span><span class="bc">Halcyon Group</span><i class="scan"></i></div><p class="dcap"><b>1</b> Scan a card</p></div>
 <div class="scene s2"><div class="typed"><span>send Priya the quote Friday</span></div><div class="saved">Saved under <b>Priya Nair</b> · due Fri</div><p class="dcap"><b>2</b> Or type one line</p></div>
 <div class="scene s3"><div class="trow owe"><b><span aria-hidden="true">↑ </span>What you need to do</b> Send Priya the quote <em>Fri</em></div><div class="trow owed"><b><span aria-hidden="true">↓ </span>What you are waiting for</b> Priya shares requirements <em>Mon</em></div><p class="dcap"><b>3</b> Today tells you what to do</p></div>
+</div>
+<button type="button" class="democtl" id="democtl" aria-pressed="false">Pause animation</button>
+<p class="note">Example contact, shortened for the animation.</p>
 </div>
 
 <ol class="steps">
@@ -120,5 +123,18 @@
     var o = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); } }); }, { threshold: 0.08 });
     s.forEach(function (x) { o.observe(x); });
   } else { s.forEach(function (x) { x.classList.add('in'); }); }
+  /* the demo: plays by default; with "Reduce Motion" on, it starts as a still picture and the visitor can press Play */
+  var demo = document.querySelector('.demo'), ctl = document.getElementById('democtl');
+  if (demo && ctl) {
+    var reduce = false; try { reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); } catch (e) {}
+    function label() { var still = demo.classList.contains('still'), paused = demo.classList.contains('paused'); ctl.textContent = still ? 'Play animation' : paused ? 'Play animation' : 'Pause animation'; ctl.setAttribute('aria-pressed', still || paused ? 'true' : 'false'); }
+    if (reduce) demo.classList.add('still');
+    label();
+    ctl.addEventListener('click', function () {
+      if (demo.classList.contains('still')) { demo.classList.remove('still'); demo.classList.remove('paused'); }
+      else demo.classList.toggle('paused');
+      label();
+    });
+  }
 })();
 </script></body></html>
