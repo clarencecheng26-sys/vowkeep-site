@@ -134,3 +134,21 @@ body { background-attachment: scroll; }
 .flow li + li::before { content: "\2192"; color: var(--muted); margin-right: 4px; margin-left: -4px; }
 @media (max-width: 720px) { .flow { flex-direction: column; align-items: center; gap: 5px; } .flow li { padding: 6px 12px; font-size: .84rem; } .flow li + li::before { content: none; } .brandbig { font-size: clamp(2.2rem, 9vw, 2.8rem); } .lead { font-size: 1rem; } }
 :root[data-look="matrix"] .hero h1 .hl { color: var(--accent); }
+
+/* v6: fuller how-it-works and FAQ */
+h3.sub { margin: 1.8em 0 .5em; font-size: 1.02rem; letter-spacing: .01em; }
+.try { display: grid; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin: 8px 0; }
+.try .tr { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.2fr); gap: 14px; padding: 12px 16px; border-top: 1px solid var(--line); }
+.try .tr:first-child { border-top: 0; }
+.try .th { background: var(--glass); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.try q { quotes: none; font: 600 .95rem ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace; color: var(--ink); }
+.try span:last-child { color: var(--muted); font-size: .94rem; }
+.k-owe { color: var(--owe); } .k-owed { color: var(--owed); }
+.day { margin-top: 8px; }
+.split { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 8px; }
+.split .col { border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+.split .col b { display: block; margin-bottom: 4px; } .split .col span { color: var(--muted); font-size: .93rem; }
+.split .col:nth-child(2) { border-color: var(--edge); box-shadow: 0 0 30px var(--glow); }
+details[open] { border-color: var(--edge); }
+details summary { list-style-position: outside; }
+@media (max-width: 720px) { .split { grid-template-columns: 1fr; } .try .tr { grid-template-columns: 1fr; gap: 4px; } .try .th { display: none; } }
