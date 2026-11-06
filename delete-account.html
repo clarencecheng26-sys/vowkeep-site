@@ -1,8 +1,27 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Delete your account · Touchpoint</title><link rel="stylesheet" href="style.css"></head><body><main><header><svg viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#3D5A80"/><path d="M150 170h212M256 170v190" stroke="#FFFFFF" stroke-width="44" stroke-linecap="round"/><path d="M362 170a96 96 0 0 1 0 192h-40M336 330l-34 32 34 32" fill="none" stroke="#8FB0D9" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/></svg><a href="index.html">Touchpoint</a><nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a></nav></header>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="VowKeep keeps one list of what you need to do for people and what you are waiting for from them. Scan a business card or type one line; it does the remembering."><meta name="theme-color" content="#0b0f0d"><link rel="icon" href="img/favicon.svg" type="image/svg+xml"><meta property="og:title" content="VowKeep"><meta property="og:description" content="Never drop a follow-up or a promise."><meta property="og:type" content="website"><meta property="og:site_name" content="VowKeep"><meta property="og:image" content="https://clarencecheng26-sys.github.io/vowkeep-site/img/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="627"><meta property="og:image:alt" content="VowKeep: never drop a follow-up or a promise"><meta name="twitter:card" content="summary_large_image"><title>Delete your account · VowKeep</title><link rel="stylesheet" href="style.css"></head><body><main><header><svg viewBox="0 0 512 512" aria-hidden="true"><rect width="512" height="512" rx="112" fill="#0F1A14"/><g transform="translate(256 268)"><rect x="-62" y="-170" width="124" height="250" rx="62" transform="rotate(-42) translate(-38 0)" fill="none" stroke="#2FD27A" stroke-width="40"/><rect x="-62" y="-170" width="124" height="250" rx="62" transform="rotate(42) translate(38 0)" fill="none" stroke="#C9D4CF" stroke-width="40"/><path d="M-14 74 A62 62 0 0 1 -66 30" transform="rotate(-42) translate(-38 0)" fill="none" stroke="#2FD27A" stroke-width="40" stroke-linecap="round"/></g></svg><a href="index.html">VowKeep</a><nav><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><button id="lookbtn" type="button" aria-pressed="false">Matrix look</button></nav></header>
 <h1>Delete your account</h1>
 <p><b>Fastest:</b> in the app, go to Me › Delete account. Your account is locked at once and permanently deleted after 7 days; you can cancel within those 7 days from the email we send.</p>
-<p><b>Without the app:</b> email <a href="mailto:touchpointbiz26@gmail.com?subject=Delete%20my%20Touchpoint%20account">touchpointbiz26@gmail.com</a> from the email address you signed up with, with the subject "Delete my Touchpoint account". We confirm within 2 working days.</p>
+<p><b>Without the app:</b> email <a href="mailto:vowkeep.app@gmail.com?subject=Delete%20my%20VowKeep%20account">vowkeep.app@gmail.com</a> from the email address you signed up with, with the subject "Delete my VowKeep account". We confirm within 2 working days.</p>
 <h2>What is deleted</h2>
 <p>Your account, contacts, notes, promises, tasks, card photos and settings. Data is removed from our live systems within 30 days and from backups within 90 days. Payment records are kept as the law requires.</p>
 <p class="note">Deleting your account does not cancel an App Store subscription. Cancel it in Settings › your name › Subscriptions.</p>
-<footer>Touchpoint · Clarence Cheng (Cheng Ee Pei), Singapore · <a href="mailto:touchpointbiz26@gmail.com">touchpointbiz26@gmail.com</a></footer></main></body></html>
+<footer>VowKeep · Clarence Cheng, Singapore · <a href="mailto:vowkeep.app@gmail.com">vowkeep.app@gmail.com</a></footer></main><script>(function () {
+  var r = document.documentElement; r.classList.add('js');
+  try { if (localStorage.getItem('vk.look') === 'matrix') r.setAttribute('data-look', 'matrix'); } catch (e) {}
+  var b = document.getElementById('lookbtn');
+  function sync() { if (b) b.setAttribute('aria-pressed', r.getAttribute('data-look') === 'matrix' ? 'true' : 'false'); }
+  sync();
+  if (b) b.addEventListener('click', function () {
+    var m = r.getAttribute('data-look') === 'matrix';
+    if (m) r.removeAttribute('data-look'); else r.setAttribute('data-look', 'matrix');
+    try { localStorage.setItem('vk.look', m ? '' : 'matrix'); } catch (e) {}
+    sync();
+  });
+  var s = document.querySelectorAll('main > section:not(.hero)');
+  s.forEach(function (x) { x.classList.add('rv'); });
+  if ('IntersectionObserver' in window) {
+    var o = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); o.unobserve(e.target); } }); }, { threshold: 0.08 });
+    s.forEach(function (x) { o.observe(x); });
+  } else { s.forEach(function (x) { x.classList.add('in'); }); }
+})();
+</script></body></html>
